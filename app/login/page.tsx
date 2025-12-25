@@ -27,7 +27,7 @@ const Login = () => {
 
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-md p-6 rounded-lg shadow-xl bg-card flex flex-col"
+        className="border border-border w-full max-w-md p-6 rounded-lg bg-card flex flex-col"
       >
         {/* Input Field */}
         <div className="mb-4">
