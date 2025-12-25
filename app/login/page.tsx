@@ -4,6 +4,10 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import Google from "@/assets/google.png";
+import Image from "next/image";
+import { ArrowRight, Hotel, Mail } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 
 const Login = () => {
   const [loginMethod, setLoginMethod] = useState<"email" | "number">("email");
@@ -41,17 +45,16 @@ const Login = () => {
         </div>
 
         {/* Main Continue Button */}
-        <Button type="submit"size={"lg"} className="w-full mb-4">
-          {loginMethod === "email"
-            ? "Continue with Email"
-            : "Continue with Number"}
+        <Button type="submit" size={"lg"} className="w-full mb-4">
+          Continue
+          <ArrowRight strokeWidth={2.3} />
         </Button>
 
         {/* Separator */}
-        <div className="flex items-center my-4">
-          <hr className="flex-1 border-t border-muted mr-2" />
+        <div className="flex items-center my-4 gap-2">
+          <Separator className="flex-1" />
           <span className="text-muted-foreground text-sm">or</span>
-          <hr className="flex-1 border-t border-muted ml-2" />
+          <Separator className="flex-1" />
         </div>
 
         {/* Other Options */}
@@ -62,6 +65,7 @@ const Login = () => {
             size={"lg"}
             className="w-full"
           >
+            <Image src={Google} width={15} height={15} alt="google_logo" />
             Continue with Google
           </Button>
 
@@ -74,9 +78,17 @@ const Login = () => {
               setLoginMethod(loginMethod === "email" ? "number" : "email")
             }
           >
-            {loginMethod === "email"
-              ? "Continue with Number"
-              : "Continue with Email"}
+            {loginMethod === "email" ? (
+              <>
+                <Hotel />
+                Continue with Mobile
+              </>
+            ) : (
+              <>
+                <Mail />
+                Continue with Email
+              </>
+            )}
           </Button>
         </div>
       </form>
